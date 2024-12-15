@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "751614941607",
+    "project_id": "analyticslobby",
+    "storage_bucket": "analyticslobby.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751614941607:android:e702aaa19fdb4003293e82",
+        "android_client_info": {
+          "package_name": "com.demos.analyticsLobby"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJBL6IkP08Ka4pwrc5Og2aR5NqDOxBizs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
