@@ -1,17 +1,29 @@
 package com.demos.analyticsLobby.AnalyticsManagers
 
-object SessionManager {
-    private val activeProviders = mutableMapOf<String, Boolean>()
+import android.content.Context
 
-    fun activateProvider(providerName: String) {
-        activeProviders[providerName] = true
+class SessionManager(private val context: Context) {
+    private val prefs = context.getSharedPreferences("AnalyticsPrefs", Context.MODE_PRIVATE)
+
+    fun validateSessionId(sessionId: String?): String {
+        if (sessionId == null || sessionId.isBlank()) {
+            return generateNewSessionId()
+        }
+        saveSessionId(sessionId)
+        return sessionId
     }
 
-    fun deactivateProvider(providerName: String) {
-        activeProviders[providerName] = false
+    fun generateNewSessionId(): String {
+        val newSessionId = "session_${System.currentTimeMillis()}_${(1000..9999).random()}"
+        saveSessionId(newSessionId)
+        return newSessionId
     }
 
-    fun isProviderActive(providerName: String): Boolean {
-        return activeProviders[providerName] ?: false
+    private fun saveSessionId(sessionId: String) {
+        prefs.edit().putString("session_id", sessionId).apply()
+    }
+
+    fun getCurrentSessionId(): String? {
+        return prefs.getString("session_id", null)
     }
 }

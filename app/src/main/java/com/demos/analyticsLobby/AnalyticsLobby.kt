@@ -24,4 +24,3 @@ class AnalyticsLobby private constructor(context: Context) {
         firebaseProvider.logEvent(eventName, JSONObject(params))
     }
 }
-    
